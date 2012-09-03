@@ -1,6 +1,7 @@
 package com.phinisi.whentag.data;
 
-import java.util.Calendar;
+
+import org.joda.time.DateTime;
 
 /**
  * 
@@ -32,9 +33,9 @@ public class Appoinment {
 	/**
 	 * Date and Time
 	 */
-	public Calendar dateAndTime;
+	public DateTime dateAndTime;
 	
-	public Appoinment(String taggedBy,String title,String subject, String place,Calendar dateAndTime)
+	public Appoinment(String taggedBy,String title,String subject, String place,DateTime dateAndTime)
 	{
 		this.taggedBy = taggedBy;
 		this.title = title;
