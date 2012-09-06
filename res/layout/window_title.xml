@@ -2,16 +2,19 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
-  android:layout_height="35dip"
+  android:layout_height="wrap_content"
   android:gravity="center_vertical"
   android:paddingLeft="5dip"
-  android:background="#323331"
+  android:background="#4abcea"  
   >
+  
     <ImageView 
     	android:id="@+id/headerIcon" 
     	android:layout_width="wrap_content" 
     	android:src="@drawable/icon" 
-    	android:layout_height="wrap_content">
+    	android:layout_height="wrap_content"
+    	android:contentDescription="@string/logo"
+    	>
     </ImageView>
     
     <TextView  style="@style/TitleFont" 
@@ -19,14 +22,16 @@
     	android:id="@+id/textView1" 
     	android:layout_width="wrap_content" 
     	android:layout_height="wrap_content"
+    	android:textStyle="bold"
+    	android:typeface="monospace"
     	>
     </TextView>  
   	
-  	<LinearLayout android:layout_width="wrap_content"
+  	<LinearLayout android:layout_width="0dip"
   		android:layout_height="wrap_content"
   		android:layout_weight="1"
   		android:gravity="right|center_vertical"
-  		android:paddingRight="5dip">
+  		android:paddingRight="10dip">
   		
   		 <TextView
             android:id="@+id/title"
@@ -38,10 +43,13 @@
         <ImageView
             android:id="@+id/icon"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <ImageButton android:id="@+id/btn_icon" 
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/logo"/>
+        <ImageButton android:id="@+id/btn_icon"
         	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"/>        
+        	android:layout_height="wrap_content"
+        	android:background="@null"
+        	android:contentDescription="@string/add"/>        
   	</LinearLayout>
   
 </LinearLayout>

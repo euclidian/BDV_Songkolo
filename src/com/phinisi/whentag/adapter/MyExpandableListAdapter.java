@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MyExpandableListAdapter extends BaseExpandableListAdapter {
@@ -70,17 +71,17 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
 		// TODO Auto-generated method stub
 		
 		View inflatedView = View.inflate(ctx.getApplicationContext(), R.layout.expandable_child, null);
-		inflatedView.setPadding(50, 0, 0, 0);
-		TextView txt_subject = (TextView) inflatedView.findViewById(R.id.txt_subject);
-		TextView txt_place = (TextView) inflatedView.findViewById(R.id.txt_place);
-		TextView txt_time = (TextView) inflatedView.findViewById(R.id.txt_time);
-		
-		Appoinment currAppoinment = data.get(groupPosition).get(childPosition);
-		txt_subject.setText(currAppoinment.subject);
-		txt_place.setText(currAppoinment.place);
-				
-		String dateString = currAppoinment.dateAndTime.toString();
-		txt_time.setText(dateString);
+		inflatedView.setPadding(5, 0, 0, 5);
+//		TextView txt_subject = (TextView) inflatedView.findViewById(R.id.txt_subject);
+//		TextView txt_place = (TextView) inflatedView.findViewById(R.id.txt_place);
+//		TextView txt_time = (TextView) inflatedView.findViewById(R.id.txt_time);
+//		
+//		Appoinment currAppoinment = data.get(groupPosition).get(childPosition);
+//		txt_subject.setText(currAppoinment.subject);
+//		txt_place.setText(currAppoinment.place);
+//				
+//		String dateString = currAppoinment.dateAndTime.toString();
+//		txt_time.setText(dateString);
 		
 		return inflatedView;
 		//return null;
@@ -91,11 +92,20 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		TextView textView = getGenericView();
-		textView.setText(data.get(groupPosition).get(0).title + " Tagged By()");
+		//TextView textView = getGenericView();
+		//textView.setText(data.get(groupPosition).get(0).title + " Tagged By()");
 		//TextView textView = (TextView) convertView.findViewById(R.id.textView1);
 		//textView.setText("asdasdsad");
-		return textView;
+		//return textView;
+		View inflatedView = View.inflate(ctx.getApplicationContext(),R.layout.expandable_group,null);
+		TextView txt_title = (TextView) inflatedView.findViewById(R.id.titleGroup);
+		txt_title.setText(data.get(groupPosition).get(0).title);
+		ImageView imgView = (ImageView) inflatedView.findViewById(R.id.arrow_group);
+		if(isExpanded)
+			imgView.setImageResource(R.drawable.arrow_up);
+		else
+			imgView.setImageResource(R.drawable.arrow_down);
+		return inflatedView;
 	}
 
 	
